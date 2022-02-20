@@ -23,9 +23,6 @@ Vagrant.configure("2") do |config|
     sudo usermod -aG docker ${USER}
     sudo curl -s -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
-    curl -s -L https://github.com/docker/machine/releases/download/v0.16.2/docker-machine-`uname -s`-`uname -m` >/home/vagrant/docker-machine &&
-    chmod +x /home/vagrant/docker-machine &&
-    sudo cp /home/vagrant/docker-machine /usr/local/bin/docker-machine
   SHELL
   a.vm.hostname = "elliot01"
   a.vm.synced_folder ".", "/home/vagrant/projetos/descomplicando-ansible"
