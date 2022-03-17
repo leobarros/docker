@@ -1,0 +1,16 @@
+version: "3"
+services:
+  micro:
+    image: nginx:latest
+    networks:
+     - traefik-public
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.micro.rule=Host('ms.leosales.com.br')"
+        - "traefik.http.routers.micro.entrypoints=web"
+        - "traefik.http.services.micro.loadbalancer.server.port:80"
+networks:
+  traefik-public:
+    external: true
+
